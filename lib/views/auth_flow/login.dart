@@ -62,7 +62,6 @@ Widget build(BuildContext context) {
         crossAxisAlignment: CrossAxisAlignment.center,
         mainAxisSize: MainAxisSize.min,
         children: <Widget>[
-          if (errorMessage != null) Text(errorMessage!, style: const TextStyle(color: Colors.red)),
           Form(
             child: Padding(
               padding: const EdgeInsets.symmetric(horizontal: 20),
@@ -72,6 +71,7 @@ Widget build(BuildContext context) {
                 mainAxisSize: MainAxisSize.min,
                 children: [
                   250.ph,
+                  if (errorMessage != null) Text(errorMessage!, style: const TextStyle(color: Colors.red)),
                   TextFormFieldWidget(hintText: AppStrings.email, controller: emailController),
                   20.ph,
                   TextFormFieldWidget(hintText: AppStrings.password, controller: passwordController),
