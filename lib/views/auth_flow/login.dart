@@ -62,7 +62,7 @@ Widget build(BuildContext context) {
         crossAxisAlignment: CrossAxisAlignment.center,
         mainAxisSize: MainAxisSize.min,
         children: <Widget>[
-          if (errorMessage != null) Text(errorMessage!, style: TextStyle(color: Colors.red)),
+          if (errorMessage != null) Text(errorMessage!, style: const TextStyle(color: Colors.red)),
           Form(
             child: Padding(
               padding: const EdgeInsets.symmetric(horizontal: 20),

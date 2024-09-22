@@ -34,7 +34,7 @@ class _SignupScreenState extends State<SignupScreen> {
 
   final authService = Provider.of<AuthService>(context, listen: false);
   try {
-    await authService.signUp(emailController.text, passwordController.text);
+    await authService.signUp(emailController.text, passwordController.text,  nameController.text );
     Navigator.pushReplacementNamed(context, DashboardScreen.route); // Navigate here
   } catch (error) {
     setState(() {
@@ -69,7 +69,7 @@ class _SignupScreenState extends State<SignupScreen> {
                 mainAxisSize: MainAxisSize.min,
                 children: [
                   150.ph,
-                  if (errorMessage != null) Text(errorMessage!, style: TextStyle(color: Colors.red)),
+                  if (errorMessage != null) Text(errorMessage!, style: const TextStyle(color: Colors.red)),
                   TextFormFieldWidget(hintText: AppStrings.name,controller: nameController,),
                   20.ph,
                   TextFormFieldWidget(hintText: AppStrings.email, controller: emailController,),
@@ -77,7 +77,7 @@ class _SignupScreenState extends State<SignupScreen> {
                   TextFormFieldWidget(hintText: AppStrings.password, controller: passwordController,),
                   280.ph,
                   isLoading
-                  ? CircularProgressIndicator() :
+                  ? const CircularProgressIndicator() :
                   SizedBox(
                     width: MediaQuery.of(context).size.width - 100,
                     child: CustomButton(text: AppStrings.signUp,  onPressed: () => signUp(context),)),
